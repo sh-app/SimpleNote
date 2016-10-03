@@ -6,20 +6,20 @@
 
 ###HomeContainer
   `  SidebarNav`
-  `  + SearchComponent`
+  -SearchComponent
 
-  `NoteContainer
+  `NoteContainer`
     - NotesHeader
     - NotesIndex
-      + NoteIndexItems
-      + NoteDetail
-        + NoteMenu
-          + Notebook
-            + NotebookSelect
-            + NewNotebook
-          + Tags
-            + Tag
-        + Note`
+      - NoteIndexItems
+      - NoteDetail
+        - NoteMenu
+          - Notebook
+            - NotebookSelect
+            - NewNotebook
+          - Tags
+            - Tag
+        - Note
 
   SearchResultContainer    
     - SearchResultHeader
