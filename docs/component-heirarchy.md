@@ -1,11 +1,14 @@
-SignupAuthFormComponent
-LoginAuthFormComponent
+##Component Hierarchy
 
-HomeContainer
-  - SidebarNav
-    + SearchComponent
+`SignupAuthFormComponent`
 
-  NoteContainer
+`LoginAuthFormComponent`
+
+###HomeContainer
+  `  SidebarNav`
+  `  + SearchComponent`
+
+  `NoteContainer
     - NotesHeader
     - NotesIndex
       + NoteIndexItems
@@ -16,7 +19,7 @@ HomeContainer
             + NewNotebook
           + Tags
             + Tag
-        + Note
+        + Note`
 
   SearchResultContainer    
     - SearchResultHeader
