@@ -6,11 +6,11 @@
 
 ###HomeContainer
   SidebarNav
-  -SearchComponent
+  SearchComponent
 
-  `NoteContainer`
+  NoteContainer
     - NotesHeader
-    - NotesIndex
+    + NotesIndex
       + NoteIndexItems
       + NoteDetail
         + NoteMenu
@@ -79,16 +79,18 @@ AccountContainer
   - LogoutButton
 
 ##Routes
-path='/signup'  ==> SignupAuthForm
-path='/login'  ==> LoginAuthForm
-path='/home'  ==> HomeContainer
-  path='/notes/:noteid' ==> NoteContainer
-  path='/notebooks/:notebookid/notes/:noteid' ==> NotebookContainer
-  path='/tags/:tagid/notes/:noteid' ==> TagContainer
-  path='/search-results/notes/:noteid' ==> SearchResultContainer
-path='/newnote' ==> NewNoteContainer
-path='/new-notebook' ==> NewNotebook
-path='/new-tag' ==> NewTag
-path='/notebook-search' ==> NotebookSearchContainer
-path='/tag-search' ==> TagSearchContainer
-path='/users/:userid' ==> AccountContainer
+|Path   | Component   |
+|-------|-------------|
+| '/signup' | SignupAuthForm |
+| '/login' | LoginAuthForm |
+| '/home' | HomeContainer |
+| '/notes/:noteid | NoteContainer |
+| '/notebooks/:notebookid/notes/:noteid | NotebookContainer |
+| '/tags/:tagid/notes/:noteid | TagContainer |
+| '/search-results/notes/:noteid | SearchResultContainer |
+| '/newnote | NewNoteContainer |
+| '/new-notebook | NewNotebook |
+| '/new-tag | NewTag |
+| '/notebook-search | NotebookSearchContainer |
+| '/tag-search | TagSearchContainer |
+| '/users/:userid | AccountContainer |
