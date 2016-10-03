@@ -11,6 +11,7 @@ session_token   | string    | not null, indexed, unique
 name            | string    | indexed
 location        | string    | indexed
 organization    | string    | indexed
+image_url       | string    |
 
 
 ## notes

@@ -13,6 +13,10 @@ components, i.e. containers, are listed at the end.
   0. invoked from `SignupForm` `onSubmit`
   0. `POST /api/users` is called.
   0. `receiveCurrentUser` is set as the success callback.
+* `updateUserInfo`
+  0. invoked from `UserInfoForm` `onSubmit` (if route params user id is defined)
+  0. `PATCH /api/users/:id` is called.
+  0. `receiveCurrentUser` is set as the success callback.
 * `logIn`
   0. invoked from `LoginForm` `onSubmit`
   0. `POST /api/session` is called.
@@ -99,7 +103,7 @@ components, i.e. containers, are listed at the end.
   0. `receiveNotebook` is set as the callback.
 
 * `updateNotebook`
-  0. invoked from `NotebookForm` `onSubmit` (if route params collection id is defined)
+  0. invoked from `NotebookForm` `onSubmit` (if route params notebook id is defined)
   0. `PATCH /api/notebooks/:id` is called.
   0. `receiveNotebook` is set as the success callback.
 

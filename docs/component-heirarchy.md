@@ -74,7 +74,7 @@ NewNoteContainer
 
 AccountContainer
   - AccountSettings
-    + AuthorInformation (name, location, organization)
+    + AuthorInformation (name, location, organization, profile picture)
     + Change (e-mail, password)
   - LogoutButton
 
