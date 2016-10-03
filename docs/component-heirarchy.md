@@ -9,8 +9,8 @@
   -SearchComponent
 
   `NoteContainer`
-    - NotesHeader
-    - NotesIndex
+    * NotesHeader
+    * NotesIndex
       - NoteIndexItems
       - NoteDetail
         - NoteMenu
