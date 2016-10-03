@@ -5,21 +5,21 @@
 `LoginAuthFormComponent`
 
 ###HomeContainer
-  `  SidebarNav`
+  SidebarNav
   -SearchComponent
 
   `NoteContainer`
-    *NotesHeader
-    *NotesIndex
-      - NoteIndexItems
-      - NoteDetail
-        - NoteMenu
-          - Notebook
-            - NotebookSelect
-            - NewNotebook
-          - Tags
-            - Tag
-        - Note
+    - NotesHeader
+    - NotesIndex
+      + NoteIndexItems
+      + NoteDetail
+        + NoteMenu
+          + Notebook
+            + NotebookSelect
+            + NewNotebook
+          + Tags
+            + Tag
+        + Note
 
   SearchResultContainer    
     - SearchResultHeader
