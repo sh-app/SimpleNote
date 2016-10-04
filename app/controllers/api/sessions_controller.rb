@@ -10,7 +10,7 @@ class Api::SessionsController < ApplicationController
       log_in(@user)
       render json: [`Logged in successfully as #{user.username}`]
     else
-      render json: ['Invalid credentials'] status: 401
+      render json: ['Invalid credentials'], status: 401
     end
   end
 
