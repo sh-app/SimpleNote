@@ -22,7 +22,7 @@ export default class Header extends React.Component {
   render() {
     if (!this.props.currentUser) {
       return(
-        <form className="login-form" onSubmit={this.handleSubmit}>
+        <form className="login-form" onSubmit={this.handleLogin}>
           <label>Username:
             <input
               onChange={this.handleChange('username')}
@@ -38,7 +38,6 @@ export default class Header extends React.Component {
               placeholder='password'
               value={this.state.password}/>
           </label>
-
           <button>Log In</button>
         </form>
       );
