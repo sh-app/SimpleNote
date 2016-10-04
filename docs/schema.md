@@ -18,7 +18,7 @@ image_url       | string    |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-title       | string    | not null
+title       | string    | 
 body        | text      | not null
 author_id   | integer   | not null, foreign_key, indexed
 notebook_id | integer   | not null, foreign key, indexed

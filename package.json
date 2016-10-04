@@ -1,0 +1,24 @@
+{
+  "name": "SimpleNote",
+  "version": "1.0.0",
+  "description": "[Heroku link][heroku] **Note:** This should be a link to your production site",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "node_modules/.bin/webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sh-app/SimpleNote.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sh-app/SimpleNote/issues"
+  },
+  "homepage": "https://github.com/sh-app/SimpleNote#readme"
+}
