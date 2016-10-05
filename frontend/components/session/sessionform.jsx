@@ -32,17 +32,17 @@ export default class SessionForm extends React.Component {
   }
 
   formSelect() {
-    if (this.props.formType==='signup') {
+    if (this.props.formType==='login') {
       return true;
     }
   }
 
   render() {
 
-    const buttonValue = this.formSelect() ? 'Sign Up' : 'Log In';
-    const linkText = this.formSelect() ? "Already have an account?" : "Don't have an account?";
-    const linkValue = this.formSelect() ? "/login" : "/signup";
-    const display = this.formSelect() ? {display: ''} : {display: 'none'};
+    const buttonValue = this.formSelect() ? 'Log In' : 'Sign Up';
+    const linkText = this.formSelect() ? "Don't have an accout?" : "Already have an account?";
+    const linkValue = this.formSelect() ? "/signup" : "/login";
+    const display = this.formSelect() ? {display: 'none'} : {display: ''};
     const displayHeaders = (this.props.formType==='/') ? {display: 'none'} : {display: ''};
     const errorDisplay = this.props.errors[0] ? {display: ''} : {display: 'none'};
 
