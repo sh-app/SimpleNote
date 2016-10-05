@@ -5,6 +5,18 @@ import configureStore from './store/store';
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  let store;
+  if (window.currentUser) {
+    const sessionInfo = {
+      session: {
+        currentUser: window.currentUser
+      }
+    };
+    store = configureStore(sessionInfo);
+  } else {
+    store = configureStore();
+  }
+
+  window.store = store; //testing only
   ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });

@@ -18,11 +18,11 @@ const SessionMiddleware =({ getState, dispatch }) => next => action => {
 
     case LOGIN:
       login(action.user, success, error);
-      return user(action);
+      return next(action);
 
     case LOGOUT:
-      logout(() => dispatch(logout()), error);
-      return user(action);
+      logout(() => next(action), error);
+      return next(action);
 
     default:
       return next(action);

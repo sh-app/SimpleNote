@@ -1,18 +1,36 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 
 export default class Header extends React.Component {
 
   constructor(props) {
     super(props);
     this.state= { username: "", password: ""};
-    this.handleSubmit = this.handleLogin.bind(this);
+    this.handleLogin = this.handleLogin.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidUpdate() {
+    this.redirect();
+  }
+
+  redirect(){
+    if (this.props.errors.length > 0) {
+      hashHistory.push("/login");
+    }
   }
 
   handleLogin(e) {
     e.preventDefault();
     let user = this.state;
     this.props.login({user});
+  }
+
+  handleLogout(e) {
+    e.preventDefault();
+    this.setState({username: "", password: ""});
+    this.props.logout();
   }
 
   handleChange(field) {
@@ -43,9 +61,9 @@ export default class Header extends React.Component {
       );
     } else {
       return(
-        <section>
-          <h3>Logged in as: {this.props.currentUser.username}</h3>
-          <button>Log Out</button>
+        <section className='group'>
+          <button className='log-out'onClick={this.handleLogout}>Log Out</button>
+          <h3 className='user-panel'>Logged in as: {this.props.currentUser.username}</h3>
         </section>
       );
     }

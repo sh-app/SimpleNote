@@ -8,7 +8,7 @@ class Api::SessionsController < ApplicationController
 
     if @user
       log_in(@user)
-      render json: [`Logged in successfully as #{user.username}`]
+      render 'api/users/show'
     else
       render json: ['Invalid credentials'], status: 401
     end
@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     if current_user
       log_out
-      render json: [`Cya soon #{user.username}`]
+      render json: [`Cya soon`]
     else
       render json: ['Already logged out...']
     end
