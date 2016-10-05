@@ -27,7 +27,6 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     let user = this.state;
     this.props.submitForm({user});
   }
@@ -80,7 +79,7 @@ export default class SessionForm extends React.Component {
               placeholder='******'
               value={this.state.password}/>
 
-          <button>{buttonValue}</button>
+            <button>{buttonValue.toUpperCase()}</button>
         </form>
         <Link style={displayHeaders} to={linkValue}>{linkText}</Link>
       </div>
