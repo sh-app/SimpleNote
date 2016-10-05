@@ -17,10 +17,10 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     formType = '/';
   }
 
-  if (formType === 'signup') {
-      submitForm = signup;
-  } else {
+  if (formType === 'login') {
       submitForm = login;
+  } else {
+      submitForm = signup;
   }
 
   return {

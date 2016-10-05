@@ -27,6 +27,7 @@ export default class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    debugger
     let user = this.state;
     this.props.submitForm({user});
   }
