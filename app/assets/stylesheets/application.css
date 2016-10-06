@@ -70,21 +70,24 @@
  }
 
  .header-nav {
-
  }
 
  .header-logo {
-
+   float: left;
+   width: 60px;
+   height: 60px;
  }
 
  .header-title {
+   margin-left: 5px;
    float: left;
    font-family: 'Roboto Slab', serif;
-   font-size: 36px;
+   font-size: 48px;
  }
 
  .login-form {
    float: right;
+   padding-top: 13px;
  }
 
  .login-form label {
@@ -138,7 +141,7 @@
 
  .signup-form-container {
    margin: auto;
-   width: 25%;
+   width: 320px;
    margin-top: 20px;
    padding: 50px;
    border-radius: 5px;
@@ -183,8 +186,9 @@
  }
 
  .signup-form-container input {
-   display: block;
-   width: 80%;
+   display:list-item;;
+   width: 90%;
+   margin: auto;
    margin-bottom: 20px;
  }
 
@@ -219,6 +223,7 @@
  }
 
  .splash-form-container {
-   width: 75%;
+   margin-left: 20px;
+   float: left;
    padding-bottom: 100px;
  }
