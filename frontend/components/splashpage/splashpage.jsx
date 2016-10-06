@@ -8,10 +8,15 @@ export default class SplashPage extends React.Component {
 
   render() {
     return(
-      <div className='splash'>
+      <div className='splash group'>
         <section className='splash-form-container'>
           <SessionFormContainer/>
         </section>
+        <video autoPlay muted loop id="bgvid">
+          <source src={window.mediaAssets.splashvideo} type="video/mp4"/>
+        </video>
+
+
 
       </div>
     );

@@ -3,6 +3,7 @@ import App from './app';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SplashPage from './splashpage/splashpage';
+import HomeContainer from './layout/home_container'
 import SessionFormContainer from './session/sessionform_container';
 
 
@@ -10,7 +11,7 @@ const Root = ({store}) => {
 
   const _redirectIfLoggedIn = (next, replace) => {
     if (store.getState().session.currentUser) {
-      replace('/');
+      replace('/home');
     }
   }
 
@@ -20,7 +21,8 @@ const Root = ({store}) => {
         <Route path="/login" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
         <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
         <Route path='/' component={App}>
-          <IndexRoute component={SplashPage} />
+          <Route path="home" component={HomeContainer}/>
+          <IndexRoute component={SplashPage} onEnter={_redirectIfLoggedIn}/>
         </Route>
       </Router>
     </Provider>

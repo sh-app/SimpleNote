@@ -10,7 +10,9 @@ const App = ({children}) => (
       <HeaderContainer />
       </div>
     </header>
+    <div className='main-content'>
     {children}
+    </div>
   </div>
 );
 

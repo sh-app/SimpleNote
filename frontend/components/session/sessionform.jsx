@@ -40,7 +40,7 @@ export default class SessionForm extends React.Component {
   render() {
 
     const buttonValue = this.formSelect() ? 'Log In' : 'Sign Up';
-    const linkText = this.formSelect() ? "Don't have an accout?" : "Already have an account?";
+    const linkText = this.formSelect() ? "Don't have an account?" : "Already have an account?";
     const linkValue = this.formSelect() ? "/signup" : "/login";
     const display = this.formSelect() ? {display: 'none'} : {display: ''};
     const displayHeaders = (this.props.formType==='/') ? {display: 'none'} : {display: ''};
@@ -49,7 +49,7 @@ export default class SessionForm extends React.Component {
     return(
       <div>
       <h2 className="login-message" style={displayHeaders}>Oops!  Looks like you're not logged in!</h2>
-      <h2 className="signup-heading">{buttonValue}</h2>
+      <h2 className="signup-heading" style={displayHeaders}>{buttonValue}</h2>
       <div className="signup-form-container">
         <p className='errors' style={errorDisplay}>{this.props.errors[0]}</p>
         <form  onSubmit={this.handleSubmit}>
@@ -76,7 +76,7 @@ export default class SessionForm extends React.Component {
               id='password'
               onChange={this.handleChange('password')}
               type='password'
-              placeholder='******'
+              placeholder='* * * * * *'
               value={this.state.password}/>
 
             <button>{buttonValue.toUpperCase()}</button>
