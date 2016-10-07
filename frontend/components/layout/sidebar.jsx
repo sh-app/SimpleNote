@@ -9,12 +9,12 @@ export default class Sidebar extends React.Component {
   render() {
     return(
       <nav className='sidebar'>
-      <ul className='group'>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
-    </nav>
+        <ul className=''>
+          <li>Item 1</li>
+          <li>Item 2</li>
+          <li>Item 3</li>
+        </ul>
+      </nav>
   );
   }
 }

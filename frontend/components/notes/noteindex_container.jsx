@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
-import NoteIndex from 'noteindex';
+import NoteIndex from './noteindex';
 import { createNote, editNote, deleteNote, getNote, getAllNotes } from '../../actions/note_actions'
 
 const mapStateToProps = ({notes}) => ({
-  notes = notes,
-  currentNote = notes.currentNote
+  allNotes : notes.allNotes,
+  currentNote : notes.currentNote
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-) (NoteIndex);
+)(NoteIndex);

@@ -1,6 +1,7 @@
 import React from 'react';
 import Sidebar from './sidebar';
 import Note from '../notes/note';
+import NoteIndexContainer from '../notes/noteindex_container';
 import { hashHistory } from 'react-router';
 
 export default class Home extends React.Component {
@@ -14,7 +15,6 @@ export default class Home extends React.Component {
   }
 
   redirect(){
-    debugger
     if (!this.props.session) {
       hashHistory.push("/");
     }
@@ -22,8 +22,9 @@ export default class Home extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className ='content-container group'>
         <Sidebar />
+        <div className='mini-menu'>{this.props.children}</div>
         <Note />
       </div>
     );

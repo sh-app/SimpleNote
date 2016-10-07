@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SplashPage from './splashpage/splashpage';
 import HomeContainer from './layout/home_container'
 import SessionFormContainer from './session/sessionform_container';
+import NoteIndexContainer from './notes/noteindex_container';
 
 
 const Root = ({store}) => {
@@ -28,7 +29,10 @@ const Root = ({store}) => {
         <Route path="/signup" component={SessionFormContainer} onEnter={_redirectIfLoggedIn}/>
         <Route path="/" component={App}>
           <IndexRoute component={SplashPage} onEnter={_redirectIfLoggedIn}/>
-          <Route path="/home" component={HomeContainer} onEnter={_redirectIfLoggedOut}/>
+          <Route path="/home" component={HomeContainer} onEnter={_redirectIfLoggedOut}>
+            <IndexRoute component={NoteIndexContainer} />
+          </Route>
+
         </Route>
       </Router>
     </Provider>

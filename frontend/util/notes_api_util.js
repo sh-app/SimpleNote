@@ -26,3 +26,23 @@ export const destroy = (note_id, success, error) => {
     error
   });
 };
+
+export const getNote = (note_id, success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: `api/notes/${note_id}`,
+    data: author_id,
+    success,
+    error
+  });
+};
+
+export const getNotes = (author_id, success, error) => {
+  $.ajax({
+    method: 'GET',
+    url: `api/notes`,
+    data: author_id,
+    success,
+    error
+  });
+};
