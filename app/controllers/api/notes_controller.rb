@@ -1,6 +1,7 @@
 class Api::NotesController < ApplicationController
 
   def index
+    @notes = Note.where(["author_id = ?", current_user.id.to_s])
     render :index;
   end
 

@@ -9,6 +9,7 @@ const defaultSession = {
 const SessionReducer = (state=defaultSession, action) => {
   Object.freeze(state);
   let newState;
+  
   switch (action.type) {
     case RECEIVE_ERRORS:
       newState =  merge({}, state, {errors: action.errors});

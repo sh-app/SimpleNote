@@ -6,6 +6,16 @@ export default class SplashPage extends React.Component {
     super(props);
   }
 
+  componentDidUpdate() {
+    this.redirect();
+  }
+
+  redirect(){
+    if (this.props.session.currentUser) {
+      hashHistory.push("/home");
+    }
+  }
+
   render() {
     return(
       <div className='splash group'>

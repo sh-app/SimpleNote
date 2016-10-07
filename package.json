@@ -31,7 +31,6 @@
     "babel-loader": "^6.2.5",
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-react": "^6.16.0",
-    "quill": "^1.0.6",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-quill": "^0.4.1",

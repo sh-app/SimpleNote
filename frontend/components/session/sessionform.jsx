@@ -17,7 +17,7 @@ export default class SessionForm extends React.Component {
 
 	redirect(){
 		if (this.props.loggedIn) {
-			hashHistory.push("/");
+			hashHistory.push("/home");
 		}
 	}
 
