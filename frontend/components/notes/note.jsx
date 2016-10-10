@@ -39,9 +39,9 @@ export default class Note extends React.Component {
 
   _autosave(content, delta, source, editor) {
     this.setState({body: content});
+
     if (this.timeOut) {
       clearTimeout(this.timeOut);
-      debugger
     } else {
       this.timeOut = setTimeout(this._save, 5000);
     }
@@ -50,7 +50,6 @@ export default class Note extends React.Component {
   _save(userCreate=false) {
     let note = this.state;
     note.title = note.title || "Untitled";
-    debugger
     if (this.props.currentNote.id) {
       this.props.save({note});
     } else if ((note.body && note.body.length > 20) || userCreate) {
