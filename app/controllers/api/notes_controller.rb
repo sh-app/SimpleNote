@@ -2,7 +2,7 @@ class Api::NotesController < ApplicationController
 
   def index
     @notes = Note.where(["author_id = ?", current_user.id.to_s])
-    render :index;
+    render :index
   end
 
   def create
@@ -17,10 +17,24 @@ class Api::NotesController < ApplicationController
   end
 
   def update
-    @note = Note.find(params[:id])
+    @note = Note.find(params[:note][:id])
 
     if @note.update(note_params)
       render :show
+    else
+      render json: @note.errors.full_messages, status: 422
+    end
+  end
+
+  def show
+    @note = Note.find(params[:id])
+    render :show
+  end
+
+  def destroy
+    @note = Note.find(params[:id])
+    if @note.destroy
+      render 'api/notes/index'
     else
       render json: @note.errors.full_messages, status: 422
     end

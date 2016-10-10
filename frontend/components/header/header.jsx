@@ -16,7 +16,7 @@ export default class Header extends React.Component {
   }
 
   redirect(){
-    if (this.props.errors.length > 0) {
+    if (this.props.errors && this.props.errors.length > 0) {
       hashHistory.push("/login");
     }
   }

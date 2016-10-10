@@ -309,6 +309,7 @@
 }
 
 .index-item:hover {
+  cursor: pointer;
   background-color: #2DBE60;
 }
 
@@ -359,7 +360,8 @@
   border-radius: 5px;
   display: block;
   float: right;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 
 .note-container button:hover {

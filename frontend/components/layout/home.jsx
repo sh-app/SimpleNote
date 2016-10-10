@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from './sidebar';
-import Note from '../notes/note';
+import NoteContainer from '../notes/note_container';
 import NoteIndexContainer from '../notes/noteindex_container';
 import { hashHistory } from 'react-router';
 
@@ -25,7 +25,7 @@ export default class Home extends React.Component {
       <div className ='content-container group'>
         <Sidebar />
         <div className='mini-menu'>{this.props.children}</div>
-        <Note />
+        <NoteContainer />
       </div>
     );
   }

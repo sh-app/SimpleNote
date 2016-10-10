@@ -13,16 +13,16 @@ export const createNote = (note) => ({
 });
 
 export const editNote = (note) => ({
-  type: CREATE_NOTE,
+  type: EDIT_NOTE,
   note
 });
 
 export const deleteNote = (note_id) => ({
   type: DELETE_NOTE,
-  note
+  note_id
 });
 
-export const getAllNotes = (user_id) => ({
+export const getAllNotes = () => ({
   type: GET_ALL_NOTES,
 });
 

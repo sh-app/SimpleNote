@@ -12,7 +12,7 @@ export default class NoteIndex extends React.Component {
 
   render() {
     this.userNotes = this.props.allNotes.map(note =>
-      <NoteIndexItem noteDetails={note} key={note.id} />
+      <NoteIndexItem noteDetails={note} getNote = {this.props.getNote} key={note.id} />
     );
 
     if (this.userNotes) {
@@ -28,3 +28,16 @@ export default class NoteIndex extends React.Component {
   }
 
 }
+
+
+
+/// fake auto save
+// handleChange() {
+//   if (this.timeOut) {
+//     clearTimeout(this.timeOut);
+//   }
+//
+//   this.timeOut = setTimeout(() => {
+//     apiUtil.saveThing();
+//   }, 750)
+// }
