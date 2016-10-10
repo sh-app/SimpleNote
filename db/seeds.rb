@@ -6,6 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Note.desroy_all
+Note.destroy_all
 Notebook.destroy_all
 Notebook.create(title: "First Notebook", author_id: 1)
