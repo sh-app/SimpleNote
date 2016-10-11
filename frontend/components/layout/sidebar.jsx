@@ -10,9 +10,9 @@ export default class Sidebar extends React.Component {
     return(
       <nav className='sidebar'>
         <ul className=''>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
+          <li><i className="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i></li>
+          <li><i className="fa fa-book fa-3x" aria-hidden="true"></i></li>
+          <li><i className="fa fa-tags fa-3x" aria-hidden="true"></i></li>
         </ul>
       </nav>
   );
