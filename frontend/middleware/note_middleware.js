@@ -9,7 +9,7 @@ import {
   receiveAllNotes,
   receiveErrors
 } from '../actions/note_actions';
-
+import { receiveNotebook } from '../actions/notebook_actions';
 import { create, edit, destroy, getNote, getNotes } from '../util/notes_api_util';
 
 const NoteMiddleware = ({ getState, dispatch }) => next => action => {

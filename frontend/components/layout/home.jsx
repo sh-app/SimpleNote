@@ -8,6 +8,10 @@ export default class Home extends React.Component {
     super(props);
   }
 
+  componentDidMount() {
+    this.props.getAllNotes();
+  }
+
   componentDidUpdate() {
     this.redirect();
   }
@@ -21,7 +25,7 @@ export default class Home extends React.Component {
   render() {
     return(
       <div className ='content-container group'>
-        <Sidebar />
+        <Sidebar getAllNotes = {this.props.getAllNotes}/>
         {this.props.children}
       </div>
     );

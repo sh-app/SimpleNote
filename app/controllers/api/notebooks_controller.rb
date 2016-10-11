@@ -2,7 +2,7 @@ class Api::NotebooksController < ApplicationController
   before_action :require_login
 
   def index
-    @notebooks = Notebooks.where(["author_id = ?", current_user.id.to_s])
+    @notebooks = Notebook.where(["author_id = ?", current_user.id.to_s])
     render :index
   end
 

@@ -10,10 +10,14 @@ export default class NotebookIndex extends React.Component {
   componentDidMount() {
     this.props.getAllNotebooks();
   }
-
+  
   render() {
     this.notebooks = this.props.allNotebooks.map(notebook =>
-      <NotebookIndexItem notebook={notebook} receiveNotebook = {this.props.receiveNotebook} key={notebook.id} />
+      <NotebookIndexItem
+        notebook={notebook}
+        receiveAllNotes = {this.props.receiveAllNotes}
+        receiveNotebook = {this.props.receiveNotebook}
+        key={notebook.id} />
     );
 
     if (this.notebooks) {
