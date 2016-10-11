@@ -13,6 +13,7 @@ export default class Note extends React.Component {
     this.handleTitle = this.handleTitle.bind(this);
     this.handleSave = this.handleSave.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
+
     this._autosave = this._autosave.bind(this);
     this._save = this._save.bind(this);
   }
@@ -22,11 +23,7 @@ export default class Note extends React.Component {
   }
 
   handleSave() {
-    if (this.props.currentNote.id) {
-      this._save();
-    } else {
-      this._save(true);
-    }
+    this._save(true);
   }
 
   handleDelete() {
@@ -42,17 +39,17 @@ export default class Note extends React.Component {
 
     if (this.timeOut) {
       clearTimeout(this.timeOut);
-    } else {
-      this.timeOut = setTimeout(this._save, 5000);
     }
+      this.timeOut = setTimeout(this._save, 2000);
   }
 
   _save(userCreate=false) {
     let note = this.state;
     note.title = note.title || "Untitled";
+
     if (this.props.currentNote.id) {
       this.props.save({note});
-    } else if ((note.body && note.body.length > 20) || userCreate) {
+    } else if ((note.body.length > 20) || userCreate) {
       this.props.create({note});
     }
 
@@ -62,8 +59,10 @@ export default class Note extends React.Component {
     const displayProp = this.state.id ? {display: ''} : {display: 'none'};
     return(
       <div className='note-container group'>
-        <button onClick={this.handleSave}>SAVE</button>
+        <button id='save' onClick={this.handleSave}>SAVE</button>
         <button
+          id= 'delete'
+          className= 'warning'
           onClick={this.handleDelete}
           style={displayProp}>DELETE
         </button>
@@ -79,7 +78,6 @@ export default class Note extends React.Component {
           theme='snow'
           value={this.state.body}
           onChange={this._autosave}/>
-
       </div>
     );
   }

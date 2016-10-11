@@ -6,6 +6,7 @@ import SplashPage from './splashpage/splashpage';
 import HomeContainer from './layout/home_container'
 import SessionFormContainer from './session/sessionform_container';
 import NoteIndexContainer from './notes/noteindex_container';
+import NotebookIndexContainer from './notebooks/notebookindex_container';
 
 
 const Root = ({store}) => {
@@ -31,6 +32,8 @@ const Root = ({store}) => {
           <IndexRoute component={SplashPage} onEnter={_redirectIfLoggedIn}/>
           <Route path="/home" component={HomeContainer} onEnter={_redirectIfLoggedOut}>
             <IndexRoute component={NoteIndexContainer} />
+            <Route path="/notebooks" component={NotebookIndexContainer}/>
+            <Route path="/notes" component={NoteIndexContainer}/>
           </Route>
 
         </Route>

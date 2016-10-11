@@ -1,5 +1,6 @@
 import React from 'react';
 import NoteIndexItem from './noteindexitem';
+import NoteContainer from './note_container';
 
 export default class NoteIndex extends React.Component {
   constructor(props) {
@@ -11,15 +12,18 @@ export default class NoteIndex extends React.Component {
   }
 
   render() {
-    this.userNotes = this.props.allNotes.map(note =>
-      <NoteIndexItem noteDetails={note} getNote = {this.props.getNote} key={note.id} />
+    this.notes = this.props.allNotes.map(note =>
+      <NoteIndexItem note={note} receiveNote = {this.props.receiveNote} key={note.id} />
     );
 
-    if (this.userNotes) {
+    if (this.notes) {
       return(
         <div>
-          <h2>Recent Notes</h2>
-          <ul className='note-index'>{this.userNotes}</ul>
+          <div className='mini-menu'>
+            <h2>Recent Notes</h2>
+            <ul className='note-index'>{this.notes}</ul>
+          </div>
+          <NoteContainer />
         </div>
       );
     } else {
@@ -28,16 +32,3 @@ export default class NoteIndex extends React.Component {
   }
 
 }
-
-
-
-/// fake auto save
-// handleChange() {
-//   if (this.timeOut) {
-//     clearTimeout(this.timeOut);
-//   }
-//
-//   this.timeOut = setTimeout(() => {
-//     apiUtil.saveThing();
-//   }, 750)
-// }

@@ -9,3 +9,6 @@
 Note.destroy_all
 Notebook.destroy_all
 Notebook.create(title: "First Notebook", author_id: 1)
+Notebook.create(title: "Second Notebook", author_id: 1)
+Notebook.create(title: "Third Notebook", author_id: 1)
+Notebook.create(title: "Fourth Notebook", author_id: 1)

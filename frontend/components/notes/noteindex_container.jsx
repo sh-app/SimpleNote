@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NoteIndex from './noteindex';
-import { getNote, getAllNotes } from '../../actions/note_actions'
+import { receiveNote, getAllNotes } from '../../actions/note_actions'
 
 const mapStateToProps = ({notes}) => ({
   allNotes : notes.allNotes,
@@ -9,7 +9,7 @@ const mapStateToProps = ({notes}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   getAllNotes: () => dispatch(getAllNotes()),
-  getNote: (note_id) => dispatch(getNote(note_id))
+  receiveNote: (note) => dispatch(receiveNote(note))
 });
 
 export default connect(

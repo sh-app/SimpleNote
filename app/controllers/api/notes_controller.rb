@@ -1,4 +1,5 @@
 class Api::NotesController < ApplicationController
+  before_action :require_login
 
   def index
     @notes = Note.where(["author_id = ?", current_user.id.to_s])
@@ -19,7 +20,7 @@ class Api::NotesController < ApplicationController
   def update
     @note = Note.find(params[:note][:id])
 
-    if @note.update(note_params)
+    if (@note.author_id == current_user.id) && @note.update(note_params)
       render :show
     else
       render json: @note.errors.full_messages, status: 422
@@ -33,7 +34,7 @@ class Api::NotesController < ApplicationController
 
   def destroy
     @note = Note.find(params[:id])
-    if @note.destroy
+    if (@note.author_id == current_user.id) && @note.destroy
       render 'api/notes/index'
     else
       render json: @note.errors.full_messages, status: 422

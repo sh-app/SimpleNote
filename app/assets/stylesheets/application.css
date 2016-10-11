@@ -110,6 +110,17 @@
  .fa:hover {
    color: #0F7C33;
  }
+
+ .warning {
+   border-radius: 5px;
+   color: #FFFFFF;
+   background-color: #A62A14;
+ }
+
+ .warning:hover {
+   color: #FFFFFF;
+   background-color: #651c0f;
+ }
  /* --- CLEARFIX --- */
  .group:after {
   content: "";
@@ -142,6 +153,11 @@
    border-right: 1px dotted #0F7C33;
  }
 
+ .search-bar {
+   width: 40%;
+   float: left;
+   margin-top: 13px;
+ }
  .login-form {
    float: right;
    padding-top: 13px;
@@ -154,20 +170,12 @@
 
  .log-out {
    float: right;
-   border-radius: 5px;
    padding: 10px 20px 10px 20px;
-   color: #FFFFFF;
-   background-color: #A62A14;
  }
+
  .user-panel {
    float: right;
    margin-right: 20px;
- }
-
- .log-out:hover {
-   padding: 10px 20px 10px 20px;
-   color: #FFFFFF;
-   background-color: #000000;
  }
 
  .signup-form-container {
@@ -332,7 +340,7 @@
 .note-container {
   float: left;
   margin-top: 5px;
-  width: 100vh;
+  min-width: 60%;
 }
 
 .note-container input {
@@ -351,28 +359,25 @@
   background-color: #FFFFFF;
   border-left: 1px solid #CCCCCC;
   padding-left: 2px;
-  min-width: 100vh;
-  min-height: 100vh;
-  height: 100%;
   margin-top: 10px;
+  min-height: 600px;;
+  height: 100vh;
 }
 
 .quill-toolbar {
   border-bottom: 5px solid #F7F7F7;
 }
 
-.note-container button {
+#save {
   padding: 5px 20px;
-  color: #FFFFFF;
-  background-color: #2DBE60;
-  border-radius: 5px;
-  display: block;
   float: right;
   margin-bottom: 5px;
   margin-right: 5px;
 }
 
-.note-container button:hover {
-  color: #FFFFFF;
-  background-color: #0F7C33;
+#delete {
+  padding: 5px 20px;
+  float: right;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }

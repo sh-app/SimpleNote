@@ -6,15 +6,15 @@ export default class NoteIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.getNote(this.props.noteDetails.id);
+    this.props.receiveNote(this.props.note);
   }
 
   render() {
     return(
       <ul className='index-item' onClick={this.handleClick.bind(this)}>
-        <li className='index-title'>{this.props.noteDetails.title.slice(0,25) + '...'}</li>
-        <li className='index-contents'>{$(this.props.noteDetails.body).text().slice(0,50) + '...'}</li>
-        <li>From notebook: {this.props.noteDetails.notebook_id}</li>
+        <li className='index-title'>{this.props.note.title.slice(0,25) + '...'}</li>
+        <li className='index-contents'>{$(this.props.note.body).text().slice(0,50) + '...'}</li>
+        <li>From notebook: {this.props.note.notebook_id}</li>
       </ul>
     );
   }

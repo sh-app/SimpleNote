@@ -62,7 +62,8 @@ export default class Header extends React.Component {
     } else {
       return(
         <section className='group'>
-          <button className='log-out'onClick={this.handleLogout}>Log Out</button>
+          <input className='search-bar' type='text' placeholder='Search' />
+          <button className='warning log-out'onClick={this.handleLogout}>Log Out</button>
           <h3 className='user-panel'>Logged in as: {this.props.currentUser.username}</h3>
         </section>
       );
