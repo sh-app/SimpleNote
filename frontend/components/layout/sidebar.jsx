@@ -7,6 +7,8 @@ export default class Sidebar extends React.Component {
   }
 
   handleNotesIndex() {
+    this.props.clearCurrentNotebook();
+    this.props.clearCurrentNote();
     this.props.getAllNotes();
   }
 
@@ -15,7 +17,7 @@ export default class Sidebar extends React.Component {
       <nav className='sidebar'>
         <ul className=''>
 
-          <li><Link to='/notes'>
+          <li><Link to='/notes' onClick = {this.handleNotesIndex.bind(this)}>
             <i className="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
           </Link></li>
 

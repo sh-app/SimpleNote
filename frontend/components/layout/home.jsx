@@ -25,7 +25,10 @@ export default class Home extends React.Component {
   render() {
     return(
       <div className ='content-container group'>
-        <Sidebar getAllNotes = {this.props.getAllNotes}/>
+        <Sidebar
+          clearCurrentNotebook={this.props.clearCurrentNotebook}
+          clearCurrentNote={this.props.clearCurrentNote}
+          getAllNotes = {this.props.getAllNotes}/>
         {this.props.children}
       </div>
     );

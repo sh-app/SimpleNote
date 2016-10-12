@@ -1,2 +1,3 @@
-json.extract! notebook, :id, :author_id, :title, :description, :updated_at
+json.extract! notebook, :id, :author_id, :title, :description
+json.updated_at time_ago_in_words(notebook.updated_at)
 json.notes notebook.notes

@@ -1,4 +1,9 @@
-import { RECEIVE_NOTE, RECEIVE_ALL_NOTES, RECEIVE_ERRORS } from '../actions/note_actions';
+import {
+  RECEIVE_NOTE,
+  RECEIVE_ALL_NOTES,
+  RECEIVE_ERRORS,
+  CLEAR_CURRENT_NOTE
+  } from '../actions/note_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -27,11 +32,13 @@ const NoteReducer = (state=defaultState, action) => {
         allNotes = state.allNotes;
         allNotes.push(action.note);
       }
-
       return merge({}, state, {currentNote: action.note, allNotes});
 
     case RECEIVE_ERRORS:
       return merge({}, state, {errors: action.errors});
+
+    case CLEAR_CURRENT_NOTE:
+      return merge({}, state, {currentNote: {}});
 
     default:
       return state;

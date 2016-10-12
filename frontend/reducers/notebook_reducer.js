@@ -1,4 +1,9 @@
-import { RECEIVE_NOTEBOOK, RECEIVE_ALL_NOTEBOOKS, RECEIVE_ERRORS } from '../actions/notebook_actions';
+import {
+  RECEIVE_NOTEBOOK,
+  RECEIVE_ALL_NOTEBOOKS,
+  RECEIVE_ERRORS,
+  CLEAR_CURRENT_NOTEBOOK
+  } from '../actions/notebook_actions';
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -13,7 +18,7 @@ const NotebookReducer = (state=defaultState, action) => {
   switch (action.type) {
 
     case RECEIVE_ALL_NOTEBOOKS:
-      return merge({}, defaultState, {allNotebooks: action.notebooks});
+      return merge({}, state, {allNotebooks: action.notebooks});
 
     case RECEIVE_NOTEBOOK:
       const notebookIds = state.allNotebooks.map(notebook => (notebook.id));
@@ -28,10 +33,13 @@ const NotebookReducer = (state=defaultState, action) => {
         allNotebooks.push(action.notebook);
       }
 
-      return merge({}, state, {currentNotebook: action.notebook, allNotebooks});
+      return Object.assign({}, state, {currentNotebook: action.notebook, allNotebooks});
 
     case RECEIVE_ERRORS:
       return merge({}, state, {errors: action.errors});
+
+    case CLEAR_CURRENT_NOTEBOOK:
+      return Object.assign({}, state, {currentNotebook: {}});
 
     default:
       return state;

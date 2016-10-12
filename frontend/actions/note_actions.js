@@ -6,6 +6,7 @@ export const GET_NOTE = 'GET_NOTE';
 export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_CURRENT_NOTE = 'CLEAR_CURRENT_NOTE';
 
 export const createNote = (note) => ({
   type: CREATE_NOTE,
@@ -44,4 +45,8 @@ export const receiveNote = (note) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearCurrentNote = () => ({
+  type: CLEAR_CURRENT_NOTE
 });

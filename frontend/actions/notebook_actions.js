@@ -6,6 +6,7 @@ export const GET_NOTEBOOK = 'GET_NOTEBOOK';
 export const RECEIVE_ALL_NOTEBOOKS = 'RECEIVE_ALL_NOTEBOOKS';
 export const RECEIVE_NOTEBOOK = 'RECEIVE_NOTEBOOK';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
+export const CLEAR_CURRENT_NOTEBOOK = 'CLEAR_CURRENT_NOTEBOOK';
 
 export const createNotebook = (notebook) => ({
   type: CREATE_NOTEBOOK,
@@ -44,4 +45,8 @@ export const receiveNotebook = (notebook) => ({
 export const receiveErrors = (errors) => ({
   type: RECEIVE_ERRORS,
   errors
+});
+
+export const clearCurrentNotebook = () => ({
+  type: CLEAR_CURRENT_NOTEBOOK
 });

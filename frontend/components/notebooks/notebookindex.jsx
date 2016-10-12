@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
 import Modal from 'react-modal';
+import ModalStyle from './modal-style';
 import NotebookIndexItem from './notebookindexitem';
+import NotebookCreate from './notebook_create';
 import NoteContainer from '../notes/note_container';
+
 
 export default class NotebookIndex extends React.Component {
   constructor(props) {
@@ -31,7 +34,7 @@ export default class NotebookIndex extends React.Component {
       <NotebookIndexItem
         notebook={notebook}
         receiveAllNotes = {this.props.receiveAllNotes}
-        receiveNotebook = {this.props.receiveNotebook}
+        getNotebook = {this.props.receiveNotebook}
         key={notebook.id} />
     );
 
@@ -39,22 +42,27 @@ export default class NotebookIndex extends React.Component {
       return(
         <div>
           <div className='mini-menu'>
+
             <h2>Notebooks</h2>
+
             <div className='mini-panel'
               onClick ={this.openModal}>
                 <i className="fa fa-plus fa-2x" aria-hidden="true"></i>
                 <p>New Notebook</p>
                 <Modal
                   isOpen={this.state.createNotebook}
+                  style={ModalStyle}
                   onRequestClose={this.closeModal}>
-                    <p closeModal={this.closeModal}>
-                      Create a notebook component here
-                    </p>
+                    <NotebookCreate
+                      create={this.props.create}
+                      closeModal={this.closeModal}
+                      getNotebook={this.props.getNotebook}/>
               </Modal>
             </div>
+
             <ul className='note-index'>{this.notebooks}</ul>
           </div>
-          <NoteContainer />
+          <NoteContainer/>
         </div>
       );
     } else {

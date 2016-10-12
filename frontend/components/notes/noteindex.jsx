@@ -9,7 +9,10 @@ export default class NoteIndex extends React.Component {
 
   render() {
     this.notes = this.props.allNotes.map(note =>
-      <NoteIndexItem note={note} receiveNote = {this.props.receiveNote} key={note.id} />
+      <NoteIndexItem  currentNotebook={this.props.currentNotebook}
+        note={note}
+        receiveNote = {this.props.receiveNote}
+        key={note.id} />
     );
     const title = this.props.currentNotebook.title || "Recent Notes";
 
@@ -20,7 +23,7 @@ export default class NoteIndex extends React.Component {
             <h2>{title}</h2>
             <ul className='note-index'>{this.notes}</ul>
           </div>
-          <NoteContainer />
+          <NoteContainer/>
         </div>
       );
     } else {

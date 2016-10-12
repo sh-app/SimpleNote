@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
+import NotebookDropdown from '../notebooks/notebook_dropdown';
 
 export default class Note extends React.Component {
   constructor(props) {
@@ -8,7 +9,8 @@ export default class Note extends React.Component {
       title: this.props.currentNote.title,
       body: this.props.currentNote.body,
       id: this.props.currentNote.id,
-      notebook_id: 1 };
+      notebook_id: this.props.currentNotebook.id || "new-notebook"
+    };
 
     this.handleTitle = this.handleTitle.bind(this);
     this.handleSave = this.handleSave.bind(this);
@@ -18,8 +20,12 @@ export default class Note extends React.Component {
     this._save = this._save.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getAllNotebooks();
+  }
+
   componentWillReceiveProps(nextProps) {
-    this.setState(nextProps.currentNote);
+      this.setState(nextProps.currentNote);
   }
 
   handleSave() {
@@ -68,10 +74,15 @@ export default class Note extends React.Component {
             onClick={this.handleDelete}
             style={displayProp}>DELETE
           </button>
-          <p style={displayProp}>Last Updated: {this.state.updated_at}</p>
+          <p style={displayProp}>Last Updated: {this.state.updated_at} ago</p>
+          <NotebookDropdown
+            notebooks={this.props.allNotebooks}
+            currentNotebook={this.props.currentNotebook}
+            getNotebook={this.props.getNotebook}
+            createNotebook={this.props.createNotebook}/>
         </div>
-
         <input
+          className='title-form'
           type='text'
           placeholder='Title...'
           onChange ={this.handleTitle('title')}

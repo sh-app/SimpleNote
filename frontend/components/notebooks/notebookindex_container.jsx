@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NotebookIndex from './notebookindex';
-import { receiveNotebook, getAllNotebooks } from '../../actions/notebook_actions'
+import { createNotebook, receiveNotebook, getAllNotebooks, getNotebook } from '../../actions/notebook_actions'
 import { receiveAllNotes } from '../../actions/note_actions'
 
 const mapStateToProps = ({notebooks}) => ({
@@ -9,6 +9,8 @@ const mapStateToProps = ({notebooks}) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  create: (notebook) => dispatch(createNotebook(notebook)),
+  getNotebook: (notebook_id) => dispatch(getNotebook(notebook_id)),
   receiveNotebook: (notebook) => dispatch(receiveNotebook(notebook)),
   getAllNotebooks: () => dispatch(getAllNotebooks()),
   receiveAllNotes: (notes) => dispatch(receiveAllNotes(notes))

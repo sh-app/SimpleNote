@@ -19,7 +19,7 @@
 
  html, body, header, nav, h1, h2, h3, a, ul, li,
  strong, main, section, img, div, p,
- form, fieldset, label, input, textarea,
+ form, fieldset, label, select, input, textarea,
  button, article, footer, small {
    margin: 0;
    padding: 0;
@@ -313,6 +313,29 @@
   background-color: #FFFFFF;
  }
 
+.mini-panel {
+  display: block;
+  color: #2DBE60;
+  background-color: #F7F7F7;
+  float: right;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.mini-panel i {
+  margin-right: 5px;
+  float: right;
+}
+
+.mini-panel p {
+  float: right;
+  padding: 5px 20px;
+}
+
+.mini-panel:hover {
+  cursor: pointer;
+}
+
  .index-item {
    padding: 10px 20px;
  }
@@ -336,6 +359,9 @@
 .index-contents {
   margin-top: 5px;
 }
+.update {
+  text-align: right;
+}
 /*---edtior ---*/
 .note-container {
   float: left;
@@ -351,9 +377,11 @@
   border-bottom-right-radius: 10px;
 }
 
-.note-container input {
+.title-form {
   display: block;
   color: #2DBE60;
+  background-color: #FFFFFF;
+  text-align: center;
   border-radius: 0px;
   font-size: 36px;
   min-width: 100%;
@@ -362,11 +390,17 @@
   margin: 0px;
   border-bottom: 2px solid #2DBE60;
 }
+
+.title-form:focus {
+  border: 0px;
+  border-bottom: 2px solid #2DBE60;
+}
+
 .quill {
   background-color: #FFFFFF;
   border-left: 1px solid #CCCCCC;
   border-right: 1px solid #CCCCCC;
-  margin-top: 10px;
+  margin-top: 5px;
   min-width: 100%;
   min-height: 600px;
   height: 100vh;
@@ -386,4 +420,31 @@
   padding: 5px 20px;
   float: right;
   margin-right: 5px;
+}
+.note-control-panel p {
+  float: right;
+  margin-right: 5px;
+}
+.note-control-panel select {
+  cursor: pointer;
+  background-color: #2DBE60;
+  color: #FFFFFF;
+  font-size: 14px;
+  float: left;
+}
+/*--- modal ---*/
+.create-modal textarea {
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  min-width: 100%;
+  min-height: 40px;
+  border: 1px solid #CCCCCC;
+  margin: 5px 0px 0px 0px;
+}
+
+.create-modal button {
+  float: right;
+  padding: 5px 20px;
+  margin-right: 5px;
+  margin-top: 5px;
 }

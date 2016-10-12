@@ -7,8 +7,7 @@ export default class NotebookIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.receiveAllNotes(this.props.notebook.notes);
-    this.props.receiveNotebook(this.props.notebook);
+    this.props.getNotebook(this.props.notebook);
     hashHistory.push("notebooks/notes");
 
   }
@@ -19,7 +18,10 @@ export default class NotebookIndexItem extends React.Component {
       <ul className='index-item' onClick={this.handleClick.bind(this)}>
         <li className='index-title'>{this.props.notebook.title.slice(0,25) + '...'}</li>
         <li className='index-contents'>{description.slice(0,50) + '...'}</li>
-        <li>Last Updated: {this.props.notebook.updated_at}</li>
+        <li>Contains {this.props.notebook.notes.length || "0"} notes</li>
+        <li className='update'><i>
+          Last Updated: {this.props.notebook.updated_at} ago
+        </i></li>
       </ul>
     );
   }
