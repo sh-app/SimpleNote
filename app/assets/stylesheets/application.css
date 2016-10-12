@@ -336,15 +336,22 @@
 .index-contents {
   margin-top: 5px;
 }
-/*---main ---*/
+/*---edtior ---*/
 .note-container {
   float: left;
-  margin-top: 5px;
   min-width: 60%;
 }
 
+.note-control-panel {
+  background-color: #e6e8e3;
+  border-top: 1px solid #CCCCCC;
+  padding: 5px;
+  margin-bottom: 5px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
 .note-container input {
-  display: block;
   display: block;
   color: #2DBE60;
   border-radius: 0px;
@@ -353,14 +360,15 @@
   border: 0px;
   padding: 0px;
   margin: 0px;
-  border-bottom: 3px solid #2DBE60;
+  border-bottom: 2px solid #2DBE60;
 }
 .quill {
   background-color: #FFFFFF;
   border-left: 1px solid #CCCCCC;
-  padding-left: 2px;
+  border-right: 1px solid #CCCCCC;
   margin-top: 10px;
-  min-height: 600px;;
+  min-width: 100%;
+  min-height: 600px;
   height: 100vh;
 }
 
@@ -371,13 +379,11 @@
 #save {
   padding: 5px 20px;
   float: right;
-  margin-bottom: 5px;
   margin-right: 5px;
 }
 
 #delete {
   padding: 5px 20px;
   float: right;
-  margin-bottom: 5px;
   margin-right: 5px;
 }

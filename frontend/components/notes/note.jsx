@@ -58,15 +58,19 @@ export default class Note extends React.Component {
   render() {
     const displayProp = this.state.id ? {display: ''} : {display: 'none'};
     return(
-      <div className='note-container group'>
-        <button id='save' onClick={this.handleSave}>SAVE</button>
-        <button
-          id= 'delete'
-          className= 'warning'
-          onClick={this.handleDelete}
-          style={displayProp}>DELETE
-        </button>
-        <p style={displayProp}>Last Updated: {this.state.updated_at}</p>
+      <div className='note-container'>
+
+        <div className='note-control-panel group'>
+          <button id='save' onClick={this.handleSave}>SAVE</button>
+          <button
+            id= 'delete'
+            className= 'warning'
+            onClick={this.handleDelete}
+            style={displayProp}>DELETE
+          </button>
+          <p style={displayProp}>Last Updated: {this.state.updated_at}</p>
+        </div>
+
         <input
           type='text'
           placeholder='Title...'
