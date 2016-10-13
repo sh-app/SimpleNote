@@ -23,10 +23,11 @@ export default class Note extends React.Component {
 
   componentDidMount() {
     this.props.getAllNotebooks();
+    this.props.getAllTags();
   }
 
   componentWillReceiveProps(nextProps) {
-      this.setState(nextProps.currentNote);
+    this.setState(nextProps.currentNote);
   }
 
   handleSave() {
@@ -64,6 +65,14 @@ export default class Note extends React.Component {
 
   render() {
     const displayProp = this.state.id ? {display: ''} : {display: 'none'};
+    this.tagNames = [];
+    if (this.state.tags) {
+      this.tagNames = this.state.tags.map( (tag) => {
+        return tag.name;
+      });
+    }
+    this.formattedTagNames = this.tagNames.join(', ');
+
     return(
       <div className='note-container'>
 
@@ -75,15 +84,24 @@ export default class Note extends React.Component {
             onClick={this.handleDelete}
             style={displayProp}>DELETE
           </button>
-          <p style={displayProp}>Last Updated: {this.state.updated_at} ago</p>
           <NotebookDropdown
             notebooks={this.props.allNotebooks}
             currentNotebook={this.props.currentNotebook}
             getNotebook={this.props.getNotebook}
             createNotebook={this.props.createNotebook}/>
-          <TagForm />
+          <TagForm
+            note = {this.state}
+            allTags ={this.props.allTags}
+            noteTags ={this.state.tags}
+            save ={this.props.save}
+            create ={this.props.create}
+            createTag={this.props.createTag}
+            removeTag={this.props.removeTag} />
         </div>
-
+        <div className='note-attr group'>
+          <p className='tags'><strong>#: </strong> {this.formattedTagNames || "No tags added"}</p>
+          <p className='update' style={displayProp}>Last Updated: {this.state.updated_at} ago</p>
+        </div>
         <input
           className='title-form'
           type='text'

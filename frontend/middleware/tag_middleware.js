@@ -1,11 +1,13 @@
 import {
   CREATE_TAG,
+  REMOVE_TAG,
   GET_ALL_TAGS,
   getAllTags,
+  receiveErrors,
   receiveAllTags
 } from '../actions/tag_actions';
 
-import { create, getTags } from '../util/tags_api_util';
+import { create, remove, getTags } from '../util/tags_api_util';
 
 const TagMiddleware = ({ getState, dispatch }) => next => action => {
 
@@ -16,6 +18,9 @@ const TagMiddleware = ({ getState, dispatch }) => next => action => {
     case CREATE_TAG:
       create(action.tag, () => dispatch(getAllTags()), error);
 
+    case REMOVE_TAG:
+      create(action.tag, () => dispatch(getAllTags()), error);
+
     case GET_ALL_TAGS:
       getTags((tags) => dispatch(receiveAllTags(tags)), error);
       return next(action);
@@ -24,6 +29,6 @@ const TagMiddleware = ({ getState, dispatch }) => next => action => {
       return next(action);
 
   }
-}
+};
 
 export default TagMiddleware;

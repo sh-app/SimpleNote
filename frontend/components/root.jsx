@@ -4,9 +4,8 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import SplashPage from './splashpage/splashpage';
 import HomeContainer from './layout/home_container';
-import SearchContainer from './search/search_container';
-import TagContainer from './tags/tag_container';
 import SessionFormContainer from './session/sessionform_container';
+import TagContainer from './tags/tag_container';
 import NoteIndexContainer from './notes/noteindex_container';
 import NotebookIndexContainer from './notebooks/notebookindex_container';
 
@@ -38,7 +37,6 @@ const Root = ({store}) => {
             <Route path="/notebooks" component={NotebookIndexContainer}/>
             <Route path="/tags" component={TagContainer}/>
             <Route path="/notes" component={NoteIndexContainer}/>
-            <Route path="/search" component={SearchContainer}/>
           </Route>
 
         </Route>

@@ -8,7 +8,7 @@ const mapStateToProps = ({tags}) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   createTag: (tag) => dispatch(createTag(tag)),
-  getAllTags: () => dispatch(getAllTags)
+  getAllTags: () => dispatch(getAllTags())
 });
 
 export default connect(

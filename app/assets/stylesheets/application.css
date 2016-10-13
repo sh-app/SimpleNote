@@ -39,7 +39,7 @@
    font-family: sans-serif;
    font-size: 12px;
    color: #000000;
-   background-color: #F7F7F7;
+   background-color: #e6e8e3;
  }
 
  ul {
@@ -48,7 +48,7 @@
 
 /* --- GENERAL STYLE --- */
   main {
-    min-width: 1000px;
+    min-width: 1100px;
     min-height: 700px;
   }
 
@@ -170,12 +170,13 @@
 
  .log-out {
    float: right;
+   margin-top: 13px;
    padding: 10px 20px 10px 20px;
  }
 
  .user-panel {
    float: right;
-   margin-right: 20px;
+   margin: 22px 10px 10px 10px;
  }
 
  .signup-form-container {
@@ -281,7 +282,9 @@
 /* --- Sidebar and mini-menu --- */
 .content-container {
   min-height: 100vh;
-  min-width: 100vh;
+  width: 1100px;
+  background-color: #F7F7F7;
+  border-right: 1px dotted #0F7C33;
 }
 
  .sidebar {
@@ -366,7 +369,7 @@
 /*---edtior ---*/
 .note-container {
   float: left;
-  min-width: 60%;
+  width: 63%;
 }
 
 .note-control-panel {
@@ -433,6 +436,63 @@
   font-size: 14px;
   float: left;
 }
+
+.note-attr {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 5px;
+}
+
+.tags {
+  float: left;
+  color: #2DBE60;
+}
+
+.tags strong {
+  font-weight: bold;
+  color: #7e8375;
+  font-size: 14px;
+}
+
+.update {
+  float: right;
+}
+
+/*--- taggings ---*/
+
+.tags-control {
+  float: left;
+  padding-left: 10px;
+}
+
+.tags-control h3 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #7e8375;
+  float: left;
+}
+.tags-control form {
+  display: inline;
+}
+.tags-control input {
+  height: 20px;
+  padding: 0px 3px;
+  margin-left: 1px;
+  margin-right: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.tags-control button {
+  height: 20px;
+  padding: 0px 10px;
+  margin-left: 0px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border: 1px solid #CCCCCC;
+  border-left: 0px;
+}
+
 /*--- modal ---*/
 .create-modal textarea {
   background-color: #FFFFFF;
