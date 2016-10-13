@@ -21,6 +21,14 @@ class User < ActiveRecord::Base
     dependent: :destroy
   )
 
+  has_many(
+   :tags,
+   class_name: 'Tag',
+   primary_key: :id,
+   foreign_key: :author_id,
+   dependent: :destroy
+   )
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return user if (user && user.is_password?(password))

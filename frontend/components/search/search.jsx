@@ -26,7 +26,6 @@ export default class Search extends React.Component {
     this.list = nextProps.allNotebooks;
     this.fuse = new Fuse(this.list, searchOptions);
     this.result = this.fuse.search("Moda");
-    debugger
   }
 
   render() {

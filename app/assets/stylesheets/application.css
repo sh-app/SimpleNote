@@ -290,6 +290,7 @@
    background-color: #e6e8e3;
    float: left;
    display: block;
+   text-align: center;
    border-top: 1px solid #CCCCCC;
    border-bottom: 1px solid #CCCCCC;
  }

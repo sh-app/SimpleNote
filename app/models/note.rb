@@ -15,4 +15,17 @@ class Note < ActiveRecord::Base
     primary_key: :id,
     foreign_key: :notebook_id
   )
+
+  has_many(
+   :taggings,
+   class_name: 'Tagging',
+   primary_key: :id,
+   foreign_key: :note_id,
+   dependent: :destroy
+   )
+
+   has_many(
+    :tags,
+    through: :taggings
+    )
 end

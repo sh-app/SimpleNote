@@ -66,7 +66,7 @@ export default class NotebookIndex extends React.Component {
         </div>
       );
     } else {
-      return (<p className='note-loading'>'Loading notes...'</p>);
+      return (<p className='note-loading'>'Loading notebooks...'</p>);
     }
   }
 

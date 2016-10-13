@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import NotebookDropdown from '../notebooks/notebook_dropdown';
+import TagForm from '../tags/tag_form';
 
 export default class Note extends React.Component {
   constructor(props) {
@@ -80,7 +81,9 @@ export default class Note extends React.Component {
             currentNotebook={this.props.currentNotebook}
             getNotebook={this.props.getNotebook}
             createNotebook={this.props.createNotebook}/>
+          <TagForm />
         </div>
+
         <input
           className='title-form'
           type='text'
@@ -93,6 +96,7 @@ export default class Note extends React.Component {
           theme='snow'
           value={this.state.body}
           onChange={this._autosave}/>
+
       </div>
     );
   }
