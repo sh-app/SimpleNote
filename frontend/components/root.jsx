@@ -33,7 +33,7 @@ const Root = ({store}) => {
           <IndexRoute component={SplashPage} onEnter={_redirectIfLoggedIn}/>
           <Route path="/home" component={HomeContainer} onEnter={_redirectIfLoggedOut}>
             <IndexRoute component={NoteIndexContainer} />
-            <Route path="/notebooks/notes" component={NoteIndexContainer} />
+            <Route path="/notebooks/notes" component={NoteIndexContainer} />  //???
             <Route path="/notebooks" component={NotebookIndexContainer}/>
             <Route path="/tags" component={TagContainer}/>
             <Route path="/notes" component={NoteIndexContainer}/>

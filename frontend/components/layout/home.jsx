@@ -8,8 +8,12 @@ export default class Home extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getAllNotes();
+  }
+
+  componentWillUnMount() {
+    //clean up after logout
   }
 
   componentDidUpdate() {
