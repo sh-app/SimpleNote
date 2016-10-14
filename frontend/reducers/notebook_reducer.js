@@ -22,18 +22,19 @@ const NotebookReducer = (state=defaultState, action) => {
 
     case RECEIVE_NOTEBOOK:
       const notebookIds = state.allNotebooks.map(notebook => (notebook.id));
-      let allNotebooks;
+      let notebooks;
 
       if (notebookIds.includes(action.notebook.id)) {
-        allNotebooks = state.allNotebooks.map(notebook => {
+        notebooks = state.allNotebooks.map(notebook => {
           return notebook.id === action.notebook.id ? action.notebook : notebook;
         });
+      } else if (action.notebook.id) {
+        notebooks = state.allNotebooks;
+        notebooks.push(action.notebook);
       } else {
-        allNotebooks = state.allNotebooks;
-        allNotebooks.push(action.notebook);
+        notebooks = state.allNotebooks;
       }
-
-      return Object.assign({}, state, {currentNotebook: action.notebook, allNotebooks});
+       return Object.assign({}, state, {allNotebooks: notebooks, currentNotebook: action.notebook});
 
     case RECEIVE_ERRORS:
       return merge({}, state, {errors: action.errors});

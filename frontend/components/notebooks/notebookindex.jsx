@@ -17,7 +17,7 @@ export default class NotebookIndex extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getAllNotebooks();
   }
 
@@ -33,41 +33,36 @@ export default class NotebookIndex extends React.Component {
     this.notebooks = this.props.allNotebooks.map(notebook =>
       <NotebookIndexItem
         notebook={notebook}
-        receiveAllNotes = {this.props.receiveAllNotes}
-        getNotebook = {this.props.receiveNotebook}
+        receiveNotebook = {this.props.receiveNotebook}
         key={notebook.id} />
     );
 
-    if (this.notebooks) {
-      return(
-        <div>
-          <div className='mini-menu'>
+    return(
+      <div>
+        <div className='mini-menu'>
 
-            <h2>Notebooks</h2>
+          <h2>Notebooks</h2>
 
-            <div className='mini-panel'
-              onClick ={this.openModal}>
-                <i className="fa fa-plus fa-2x" aria-hidden="true"></i>
-                <p>New Notebook</p>
-                <Modal
-                  isOpen={this.state.createNotebook}
-                  style={ModalStyle}
-                  onRequestClose={this.closeModal}>
-                    <NotebookCreate
-                      create={this.props.create}
-                      closeModal={this.closeModal}
-                      getNotebook={this.props.getNotebook}/>
-              </Modal>
-            </div>
-
-            <ul className='note-index'>{this.notebooks}</ul>
+          <div className='mini-panel'
+            onClick ={this.openModal}>
+              <i className="fa fa-plus fa-2x" aria-hidden="true"></i>
+              <p>New Notebook</p>
+              <Modal
+                isOpen={this.state.createNotebook}
+                style={ModalStyle}
+                onRequestClose={this.closeModal}>
+                  <NotebookCreate
+                    create={this.props.create}
+                    closeModal={this.closeModal}
+                    getNotebook={this.props.getNotebook}/>
+            </Modal>
           </div>
-          <NoteContainer/>
+
+          <ul className='note-index'>{this.notebooks}</ul>
         </div>
-      );
-    } else {
-      return (<p className='note-loading'>'Loading notebooks...'</p>);
-    }
+        <NoteContainer/>
+      </div>
+    );
   }
 
 }

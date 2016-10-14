@@ -27,26 +27,37 @@ export default class NotebookDropdown extends React.Component {
         this.openModal();
       } else {
         this.props.getNotebook(e.target.value);
+        this.props.setNotebookId(e.target.value);
       }
     };
   }
 
-  componentWillReceiveProps(newProps) {
-    this.props = newProps;
-  }
-
   render() {
      this.notebookList = this.props.notebooks.map(notebook =>
-    <option value={notebook.id} key={notebook.id}>{notebook.title}</option>);
+    (<option value={notebook.id} key={notebook.id}>{notebook.title}</option>));
 
-    this.notebookList.unshift(<option value={"new-notebook"}>New notebook</option>);
-    this.notebookList.unshift(<option value={"select-notebook"}>Select notebook</option>);
+    this.notebookList.unshift(
+      <option value={"new-notebook"} key={"new-notebook"}>New notebook</option>
+    );
+    this.notebookList.unshift(
+      <option value={0} key={0}>Select notebook</option>
+    );
+    let defaultValue;
+
+    if (this.props.currentNotebook.id) {
+      defaultValue = this.props.currentNotebook.id;
+    } else if (this.props.notebookSelected) {
+      defaultValue = this.props.notebookSelected;
+    } else {
+      defaultValue = 0;
+    }
 
     return (
       <select name="notebook_id"
-        defaultValue={this.props.currentNotebook.id || "select-notebook"}
+        value={defaultValue}
         onChange={this.handleChange("selected")}>
         {this.notebookList}
+
         <Modal
         isOpen={this.state.createNotebook}
         onRequestClose={this.closeModal}
@@ -56,6 +67,7 @@ export default class NotebookDropdown extends React.Component {
             closeModal={this.closeModal}
             getNotebook={this.props.getNotebook}/>
         </Modal>
+
       </select>
     );
   }

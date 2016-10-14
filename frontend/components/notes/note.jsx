@@ -7,10 +7,10 @@ export default class Note extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: this.props.currentNote.title,
-      body: this.props.currentNote.body,
-      id: this.props.currentNote.id,
-      notebook_id: this.props.currentNotebook.id || "new-notebook"
+      title: "",
+      body: "",
+      id: null,
+      notebook_id: null
     };
 
     this.handleTitle = this.handleTitle.bind(this);
@@ -21,9 +21,10 @@ export default class Note extends React.Component {
     this._save = this._save.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getAllNotebooks();
     this.props.getAllTags();
+    //change these to receive
   }
 
   componentWillReceiveProps(nextProps) {
@@ -39,7 +40,7 @@ export default class Note extends React.Component {
   }
 
   handleTitle(field) {
-      return (e) => this.setState({[field]: e.target.value});
+    return (e) => this.setState({[field]: e.target.value});
   }
 
   _autosave(content, delta, source, editor) {
@@ -48,19 +49,22 @@ export default class Note extends React.Component {
     if (this.timeOut) {
       clearTimeout(this.timeOut);
     }
-      this.timeOut = setTimeout(this._save, 2000);
+    this.timeOut = setTimeout(this._save, 2000);
   }
 
   _save(userCreate=false) {
     let note = this.state;
     note.title = note.title || "Untitled";
-
+    note.notebook_id = note.notebook_id || this.props.currentNotebook.id;
     if (this.props.currentNote.id) {
       this.props.save({note});
-    } else if ((note.body.length > 20) || userCreate) {
+    } else if ((note.body.length > 20 && note.notebook_id) || userCreate) {
       this.props.create({note});
     }
 
+    if (this.state.notebook_id) {
+      this.props.getNotebook(this.state.notebook_id);
+    }
   }
 
   render() {
@@ -87,7 +91,9 @@ export default class Note extends React.Component {
           <NotebookDropdown
             notebooks={this.props.allNotebooks}
             currentNotebook={this.props.currentNotebook}
+            notebookSelected={this.state.notebook_id}
             getNotebook={this.props.getNotebook}
+            setNotebookId={this.props.setNotebookId}
             createNotebook={this.props.createNotebook}/>
           <TagForm
             note = {this.state}

@@ -6,10 +6,33 @@ export default class Sidebar extends React.Component {
     super(props);
   }
 
+  handleNewNote() {
+    this.props.receiveNote({
+      title: "",
+      body: "",
+      id: null,
+      notebook_id: this.props.currentNotebook.id
+    });
+  }
+
   handleNotesIndex() {
-    this.props.clearCurrentNotebook();
-    this.props.clearCurrentNote();
-    this.props.getAllNotes();
+    this.props.receiveNotebook({});
+    this.props.receiveNote({
+      title: "",
+      body: "",
+      id: null,
+      notebook_id: null
+    });
+  }
+
+  handleNotebooksIndex() {
+    this.props.receiveNotebook({});
+    this.props.receiveNote({
+      title: "",
+      body: "",
+      id: null,
+      notebook_id: null
+    });
   }
 
   render() {
@@ -17,7 +40,7 @@ export default class Sidebar extends React.Component {
       <nav className='sidebar'>
         <ul className=''>
 
-        <li><Link to='/notes' onClick = {this.handleNotesIndex.bind(this)}>
+        <li><Link to='/notes' onClick = {this.handleNewNote.bind(this)}>
           <i className="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
         </Link></li>
 
@@ -25,7 +48,7 @@ export default class Sidebar extends React.Component {
           <i className="fa fa-sticky-note fa-3x" aria-hidden="true"></i>
           </Link></li>
 
-        <li><Link to='/notebooks'>
+        <li><Link to='/notebooks' onClick = {this.handleNotebooksIndex.bind(this)}>
           <i className="fa fa-book fa-3x" aria-hidden="true"></i>
         </Link></li>
 

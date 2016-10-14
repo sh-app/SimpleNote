@@ -16,13 +16,13 @@ const Root = ({store}) => {
     if (store.getState().session.currentUser) {
       replace('/home');
     }
-  }
+  };
 
   const _redirectIfLoggedOut = (next, replace) => {
     if (!store.getState().session.currentUser) {
       replace('/login');
     }
-  }
+  };
 
   return(
     <Provider store={store}>
@@ -33,10 +33,9 @@ const Root = ({store}) => {
           <IndexRoute component={SplashPage} onEnter={_redirectIfLoggedIn}/>
           <Route path="/home" component={HomeContainer} onEnter={_redirectIfLoggedOut}>
             <IndexRoute component={NoteIndexContainer} />
-            <Route path="/notebooks/notes" component={NoteIndexContainer} />  //???
+            <Route path="/notes" component={NoteIndexContainer}/>
             <Route path="/notebooks" component={NotebookIndexContainer}/>
             <Route path="/tags" component={TagContainer}/>
-            <Route path="/notes" component={NoteIndexContainer}/>
           </Route>
 
         </Route>

@@ -2,7 +2,7 @@ import {
   RECEIVE_NOTE,
   RECEIVE_ALL_NOTES,
   RECEIVE_ERRORS,
-  CLEAR_CURRENT_NOTE
+  SET_NOTEBOOK_ID
   } from '../actions/note_actions';
 import merge from 'lodash/merge';
 
@@ -18,27 +18,31 @@ const NoteReducer = (state=defaultState, action) => {
   switch (action.type) {
 
     case RECEIVE_ALL_NOTES:
-      return merge({}, defaultState, {allNotes: action.notes});
+      return merge({}, state, {allNotes: action.notes});
 
     case RECEIVE_NOTE:
       const noteIds = state.allNotes.map(note => (note.id));
-      let allNotes;
+      let notes;
 
       if (noteIds.includes(action.note.id)) {
-        allNotes = state.allNotes.map(note => {
-          return note.id === action.note.id ? action.note : note;
-        });
+        notes = state.allNotes.map(note => (
+          note.id === action.note.id ? action.note : note )
+        );
+      } else if (action.note.id) {
+        notes = state.allNotes;
+        notes.push(action.note);
       } else {
-        allNotes = state.allNotes;
-        allNotes.push(action.note);
+        notes = state.allNotes;
       }
-      return merge({}, state, {currentNote: action.note, allNotes});
+      return Object.assign({}, state, {allNotes: notes, currentNote: action.note});
 
     case RECEIVE_ERRORS:
       return merge({}, state, {errors: action.errors});
 
-    case CLEAR_CURRENT_NOTE:
-      return merge({}, state, {currentNote: {}});
+    case SET_NOTEBOOK_ID:
+      let a = merge({}, state, {currentNote: {notebook_id: action.notebook_id}});
+      debugger
+      return merge({}, state, {currentNote: {notebook_id: action.notebook_id}});
 
     default:
       return state;

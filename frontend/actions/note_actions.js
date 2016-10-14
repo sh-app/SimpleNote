@@ -7,6 +7,7 @@ export const RECEIVE_ALL_NOTES = 'RECEIVE_ALL_NOTES';
 export const RECEIVE_NOTE = 'RECEIVE_NOTE';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 export const CLEAR_CURRENT_NOTE = 'CLEAR_CURRENT_NOTE';
+export const SET_NOTEBOOK_ID = 'SET_NOTEBOOK_ID';
 
 export const createNote = (note) => ({
   type: CREATE_NOTE,
@@ -47,6 +48,7 @@ export const receiveErrors = (errors) => ({
   errors
 });
 
-export const clearCurrentNote = () => ({
-  type: CLEAR_CURRENT_NOTE
+export const setNotebookId = (notebook_id) => ({
+  type: SET_NOTEBOOK_ID,
+  notebook_id
 });

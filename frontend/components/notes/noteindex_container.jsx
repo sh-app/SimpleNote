@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NoteIndex from './noteindex';
-import { receiveNote, getAllNotes } from '../../actions/note_actions'
+import { receiveNote, getAllNotes } from '../../actions/note_actions';
 import { getAllNotebooks } from '../../actions/notebook_actions';
 
 
@@ -13,10 +13,9 @@ const mapStateToProps = ({notes, notebooks}) => {
     }
 
   return {
-  allNotes,
-  currentNote : notes.currentNote,
-  currentNotebook : notebooks.currentNotebook
-  }
+    allNotes,
+    currentNotebook : notebooks.currentNotebook
+  };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

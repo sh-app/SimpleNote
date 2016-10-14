@@ -7,28 +7,29 @@ export default class NoteIndex extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    this.props.getAllNotes();
+  }
+
   render() {
-    this.notes = this.props.allNotes.map(note =>
-      <NoteIndexItem  currentNotebook={this.props.currentNotebook}
+    this.notes = this.props.allNotes.reverse().map(note =>
+      <NoteIndexItem
         note={note}
+        currentNotebook={this.props.currentNotebook}
         receiveNote = {this.props.receiveNote}
         key={note.id} />
     );
-    const title = this.props.currentNotebook.title || "Recent Notes";
+    this.title = this.props.currentNotebook.title || "Recent Notes";
 
-    if (this.notes) {
-      return(
-        <div>
-          <div className='mini-menu'>
-            <h2>{title}</h2>
-            <ul className='note-index'>{this.notes}</ul>
-          </div>
-          <NoteContainer/>
+    return(
+      <div>
+        <div className='mini-menu'>
+          <h2>{this.title}</h2>
+          <ul className='note-index'>{this.notes}</ul>
         </div>
-      );
-    } else {
-      return (<p className='note-loading'>'Loading notes...'</p>);
-    }
+        <NoteContainer/>
+      </div>
+    );
   }
 
 }

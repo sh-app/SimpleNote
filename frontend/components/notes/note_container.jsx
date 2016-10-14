@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import Note from './note';
-import { createNotebook, getNotebook, getAllNotebooks } from '../../actions/notebook_actions'
-import { createNote, editNote, deleteNote } from '../../actions/note_actions'
+import { createNotebook, getNotebook, getAllNotebooks } from '../../actions/notebook_actions';
+import { createNote, editNote, deleteNote, setNotebookId } from '../../actions/note_actions';
 import { createTag, removeTag, getAllTags } from '../../actions/tag_actions';
 
 const mapStateToProps = ({notes, notebooks, tags}) => ({
@@ -18,6 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   getNotebook: (notebook_id) => dispatch(getNotebook(notebook_id)),
   getAllNotebooks: () => dispatch(getAllNotebooks()),
   createNotebook: (notebook) => dispatch(createNotebook(notebook)),
+  setNotebookId: (notebook_id) => dispatch(setNotebookId(notebook_id)),
   createTag: (tag) => dispatch(createTag(tag)),
   removeTag: (tag) => dispatch(createTag(tag)),
   getAllTags: () => dispatch(getAllTags())

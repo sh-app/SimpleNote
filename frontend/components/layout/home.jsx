@@ -8,12 +8,9 @@ export default class Home extends React.Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.props.getAllNotes();
-  }
-
   componentWillUnMount() {
     //clean up after logout
+    //clean up container
   }
 
   componentDidUpdate() {
@@ -30,9 +27,10 @@ export default class Home extends React.Component {
     return(
       <div className ='content-container group'>
         <Sidebar
-          clearCurrentNotebook={this.props.clearCurrentNotebook}
-          clearCurrentNote={this.props.clearCurrentNote}
-          getAllNotes = {this.props.getAllNotes}/>
+          receiveNotebook={this.props.receiveNotebook}
+          receiveNote={this.props.receiveNote}
+          getAllNotes = {this.props.getAllNotes}
+          currentNotebook={this.props.currentNotebook}/>
         {this.props.children}
       </div>
     );

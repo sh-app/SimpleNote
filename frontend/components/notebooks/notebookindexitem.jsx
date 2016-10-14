@@ -7,21 +7,33 @@ export default class NotebookIndexItem extends React.Component {
   }
 
   handleClick() {
-    this.props.getNotebook(this.props.notebook);
-    hashHistory.push("notebooks/notes");
-
+    this.props.receiveNotebook(this.props.notebook);
+    hashHistory.push("/notes");
   }
 
   render() {
-    const description = this.props.notebook.description || "No Description";
+    let title;
+    let description = this.props.notebook.description || "No Description";
+
+    if (this.props.notebook.title.length > 20) {
+      title = this.props.notebook.title.slice(0, 20) + "...";
+    } else {
+      title = this.props.notebook.title;
+    }
+    if (description.length > 30) {
+      description = description.slice(0,30) + '...';
+    }
+
     return(
       <ul className='index-item' onClick={this.handleClick.bind(this)}>
-        <li className='index-title'>{this.props.notebook.title.slice(0,25) + '...'}</li>
-        <li className='index-contents'>{description.slice(0,50) + '...'}</li>
+
+        <li className='index-title'>{title}</li>
+        <li className='index-contents'>{description}</li>
         <li>Contains {this.props.notebook.notes.length || "0"} notes</li>
         <li className='update'><i>
           Last Updated: {this.props.notebook.updated_at} ago
         </i></li>
+
       </ul>
     );
   }
