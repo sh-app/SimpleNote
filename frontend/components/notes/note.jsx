@@ -24,7 +24,6 @@ export default class Note extends React.Component {
   componentWillMount() {
     this.props.getAllNotebooks();
     this.props.getAllTags();
-    //change these to receive
   }
 
   componentWillReceiveProps(nextProps) {
@@ -37,6 +36,7 @@ export default class Note extends React.Component {
 
   handleDelete() {
     this.props.deleteNote(this.state.id);
+    this.props.getNotebook(this.state.notebook_id);
   }
 
   handleTitle(field) {
@@ -58,19 +58,17 @@ export default class Note extends React.Component {
     note.notebook_id = note.notebook_id || this.props.currentNotebook.id;
     if (this.props.currentNote.id) {
       this.props.save({note});
+      this.props.getNotebook(note.notebook_id);
     } else if ((note.body.length > 20 && note.notebook_id) || userCreate) {
       this.props.create({note});
-    }
-
-    if (this.state.notebook_id) {
-      this.props.getNotebook(this.state.notebook_id);
+      this.props.getNotebook(note.notebook_id);
     }
   }
 
   render() {
     const displayProp = this.state.id ? {display: ''} : {display: 'none'};
     this.tagNames = [];
-    if (this.state.tags) {
+    if (this.state.tags && this.state.tags.length > 0) {
       this.tagNames = this.state.tags.map( (tag) => {
         return tag.name;
       });
@@ -94,7 +92,8 @@ export default class Note extends React.Component {
             notebookSelected={this.state.notebook_id}
             getNotebook={this.props.getNotebook}
             setNotebookId={this.props.setNotebookId}
-            createNotebook={this.props.createNotebook}/>
+            createNotebook={this.props.createNotebook}
+            receiveTag={this.props.receiveTag}/>
           <TagForm
             note = {this.state}
             allTags ={this.props.allTags}
@@ -102,6 +101,8 @@ export default class Note extends React.Component {
             save ={this.props.save}
             create ={this.props.create}
             createTag={this.props.createTag}
+            receiveTag={this.props.receiveTag}
+            getNote={this.props.getNote}
             removeTag={this.props.removeTag} />
         </div>
         <div className='note-attr group'>

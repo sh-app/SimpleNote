@@ -22,17 +22,14 @@ const NoteReducer = (state=defaultState, action) => {
 
     case RECEIVE_NOTE:
       const noteIds = state.allNotes.map(note => (note.id));
-      let notes;
+      let notes = state.allNotes.slice();
 
       if (noteIds.includes(action.note.id)) {
         notes = state.allNotes.map(note => (
           note.id === action.note.id ? action.note : note )
         );
       } else if (action.note.id) {
-        notes = state.allNotes;
-        notes.push(action.note);
-      } else {
-        notes = state.allNotes;
+        notes.unshift(action.note);
       }
       return Object.assign({}, state, {allNotes: notes, currentNote: action.note});
 
@@ -41,7 +38,6 @@ const NoteReducer = (state=defaultState, action) => {
 
     case SET_NOTEBOOK_ID:
       let a = merge({}, state, {currentNote: {notebook_id: action.notebook_id}});
-      debugger
       return merge({}, state, {currentNote: {notebook_id: action.notebook_id}});
 
     default:

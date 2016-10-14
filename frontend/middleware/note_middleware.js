@@ -14,7 +14,7 @@ import { create, edit, destroy, getNote, getNotes } from '../util/notes_api_util
 
 const NoteMiddleware = ({ getState, dispatch }) => next => action => {
 
-  const error = (error) => dispatch(receiveErrors(error.responseJSON))
+  const error = (errors) => dispatch(receiveErrors(errors.responseJSON));
 
   switch (action.type) {
 

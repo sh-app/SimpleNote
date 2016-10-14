@@ -7,7 +7,7 @@ export default class Tag extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.getAllTags();
   }
 
@@ -15,10 +15,10 @@ export default class Tag extends React.Component {
     this.tags = this.props.allTags.map(tag =>
       <TagItem
         tag={tag}
+        receiveTag={this.props.receiveTag}
         key={tag.id} />
     );
 
-    if (this.tags) {
       return(
         <div>
 
@@ -26,13 +26,9 @@ export default class Tag extends React.Component {
             <h2>Tags</h2>
             <ul className='note-index'>{this.tags}</ul>
           </div>
-
           <NoteContainer/>
-
         </div>
       );
-    } else {
-      return (<p className='note-loading'>'Loading notebooks...'</p>);
-    }
   }
+
 }

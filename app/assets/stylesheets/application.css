@@ -163,6 +163,16 @@
    padding-top: 13px;
  }
 
+ .guest-login {
+  float: right;
+  margin: 22px 10px 10px 10px;
+ }
+
+ .guest-login:hover {
+   cursor: pointer;
+   color: #0F7C33;
+ }
+
  .login-form label {
    display: inline-block;
    padding-right: 5px;

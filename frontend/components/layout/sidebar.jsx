@@ -17,6 +17,7 @@ export default class Sidebar extends React.Component {
 
   handleNotesIndex() {
     this.props.receiveNotebook({});
+    this.props.receiveTag({});
     this.props.receiveNote({
       title: "",
       body: "",
@@ -27,6 +28,18 @@ export default class Sidebar extends React.Component {
 
   handleNotebooksIndex() {
     this.props.receiveNotebook({});
+    this.props.receiveTag({});
+    this.props.receiveNote({
+      title: "",
+      body: "",
+      id: null,
+      notebook_id: null
+    });
+  }
+
+  handleIndex() {
+    this.props.receiveNotebook({});
+    this.props.receiveTag({});
     this.props.receiveNote({
       title: "",
       body: "",
@@ -44,15 +57,15 @@ export default class Sidebar extends React.Component {
           <i className="fa fa-pencil-square-o fa-3x" aria-hidden="true"></i>
         </Link></li>
 
-        <li><Link to='/notes' onClick = {this.handleNotesIndex.bind(this)}>
+      <li><Link to='/notes' onClick = {this.handleIndex.bind(this)}>
           <i className="fa fa-sticky-note fa-3x" aria-hidden="true"></i>
           </Link></li>
 
-        <li><Link to='/notebooks' onClick = {this.handleNotebooksIndex.bind(this)}>
+        <li><Link to='/notebooks' onClick = {this.handleIndex.bind(this)}>
           <i className="fa fa-book fa-3x" aria-hidden="true"></i>
         </Link></li>
 
-        <li><Link to='/tags'>
+        <li><Link to='/tags' onClick = {this.handleIndex.bind(this)}>
           <i className="fa fa-tags fa-3x" aria-hidden="true"></i>
         </Link></li>
 

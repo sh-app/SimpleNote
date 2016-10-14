@@ -1,12 +1,10 @@
 import React from 'react';
 
 export default class NoteIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   handleClick() {
     this.props.receiveNote(this.props.note);
+    this.props.getNotebook(this.props.note.notebook_id);
   }
 
   render() {
@@ -31,7 +29,7 @@ export default class NoteIndexItem extends React.Component {
         <li className='index-contents'>{body}</li>
         <li>From notebook: {this.props.note.notebook_title || this.props.currentNotebook.title}</li>
         <li className='update'><i>
-          Last Updated: {this.props.note.updated_at} ago
+          Last Updated: {this.props.note.updated_at } ago
         </i></li>
 
       </ul>

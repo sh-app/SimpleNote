@@ -12,14 +12,17 @@ export default class NoteIndex extends React.Component {
   }
 
   render() {
-    this.notes = this.props.allNotes.reverse().map(note =>
+    console.log("index render");
+    this.notes = this.props.allNotes.map(note =>
       <NoteIndexItem
         note={note}
         currentNotebook={this.props.currentNotebook}
         receiveNote = {this.props.receiveNote}
+        getNotebook = {this.props.getNotebook}
         key={note.id} />
     );
-    this.title = this.props.currentNotebook.title || "Recent Notes";
+
+    this.title = (this.props.currentTag.name || this.props.currentNotebook.title) || "Recent Notes";
 
     return(
       <div>

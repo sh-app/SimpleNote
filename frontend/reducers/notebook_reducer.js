@@ -4,6 +4,7 @@ import {
   RECEIVE_ERRORS,
   CLEAR_CURRENT_NOTEBOOK
   } from '../actions/notebook_actions';
+
 import merge from 'lodash/merge';
 
 const defaultState = {
@@ -30,7 +31,7 @@ const NotebookReducer = (state=defaultState, action) => {
         });
       } else if (action.notebook.id) {
         notebooks = state.allNotebooks;
-        notebooks.push(action.notebook);
+        notebooks.unshift(action.notebook);
       } else {
         notebooks = state.allNotebooks;
       }

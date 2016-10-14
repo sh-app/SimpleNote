@@ -9,8 +9,11 @@ export default class Home extends React.Component {
   }
 
   componentWillUnMount() {
-    //clean up after logout
-    //clean up container
+    this.props.receiveNote(null);
+    this.props.receiveNotebook(null);
+    this.props.receiveAllNotes(null);
+    this.props.receiveAllNotebooks(null);
+    this.props.receiveAllTags(null);
   }
 
   componentDidUpdate() {
@@ -29,6 +32,7 @@ export default class Home extends React.Component {
         <Sidebar
           receiveNotebook={this.props.receiveNotebook}
           receiveNote={this.props.receiveNote}
+          receiveTag={this.props.receiveTag}
           getAllNotes = {this.props.getAllNotes}
           currentNotebook={this.props.currentNotebook}/>
         {this.props.children}

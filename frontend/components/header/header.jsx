@@ -7,6 +7,7 @@ export default class Header extends React.Component {
     super(props);
     this.state= { username: "", password: ""};
     this.handleLogin = this.handleLogin.bind(this);
+    this.handleGuestLogin = this.handleGuestLogin.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
@@ -27,6 +28,11 @@ export default class Header extends React.Component {
     this.props.login({user});
   }
 
+  handleGuestLogin() {
+    let user = {username: "guest", password: "password"};
+    this.props.login({user});
+  }
+
   handleLogout(e) {
     e.preventDefault();
     this.setState({username: "", password: ""});
@@ -40,29 +46,32 @@ export default class Header extends React.Component {
   render() {
     if (!this.props.currentUser) {
       return(
-        <form className="login-form" onSubmit={this.handleLogin}>
-          <label>Username:
-            <input
-              onChange={this.handleChange('username')}
-              type='text'
-              placeholder='username'
-              value={this.state.username}/>
-          </label>
+        <div>
+          <h1 className='guest-login'
+            onClick={this.handleGuestLogin}>Guest Login</h1>
+          <form className="login-form" onSubmit={this.handleLogin}>
+            <label>Username:
+              <input
+                onChange={this.handleChange('username')}
+                type='text'
+                placeholder='username'
+                value={this.state.username}/>
+            </label>
 
-          <label>Password:
-            <input
-              onChange={this.handleChange('password')}
-              type='password'
-              placeholder='password'
-              value={this.state.password}/>
-          </label>
-          <button>Log In</button>
-        </form>
+            <label>Password:
+              <input
+                onChange={this.handleChange('password')}
+                type='password'
+                placeholder='password'
+                value={this.state.password}/>
+            </label>
+            <button>Log In</button>
+          </form>
+        </div>
       );
     } else {
       return(
         <section className='group'>
-          <input className='search-bar' type='text' placeholder='Search' />
           <button className='warning log-out'onClick={this.handleLogout}>Log Out</button>
           <h3 className='user-panel'>Logged in as: {this.props.currentUser.username}</h3>
         </section>

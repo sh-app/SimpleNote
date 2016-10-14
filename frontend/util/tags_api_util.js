@@ -1,14 +1,13 @@
-export const create = (tag, success, error) => {
+export const create = (tag, error) => {
   $.ajax({
     method: 'POST',
     url: 'api/tags',
     data: tag,
-    success,
     error
   });
 };
 
-export const remove = (tag, success, error) => {
+export const remove = (tag, error) => {
   $.ajax({
     method: 'DELETE',
     url: `api/tags/${tag.id}`,

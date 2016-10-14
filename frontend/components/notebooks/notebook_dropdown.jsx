@@ -25,7 +25,9 @@ export default class NotebookDropdown extends React.Component {
     return (e) => {
       if (e.target.value==="new-notebook") {
         this.openModal();
+        this.props.receiveTag({});
       } else {
+        this.props.receiveTag({});
         this.props.getNotebook(e.target.value);
         this.props.setNotebookId(e.target.value);
       }

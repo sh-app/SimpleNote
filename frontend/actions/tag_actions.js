@@ -1,11 +1,17 @@
 export const CREATE_TAG = 'CREATE_TAG';
 export const REMOVE_TAG = 'REMOVE_TAG';
 export const GET_ALL_TAGS = 'GET_ALL_TAGS';
+export const RECEIVE_TAG = 'RECEIVE_TAG';
 export const RECEIVE_ALL_TAGS = 'RECEIVE_ALL_TAGS';
 export const RECEIVE_ERRORS = 'RECEIVE_ERRORS';
 
 export const createTag = (tag) => ({
   type: CREATE_TAG,
+  tag
+});
+
+export const receiveTag = (tag) => ({
+  type: RECEIVE_TAG,
   tag
 });
 

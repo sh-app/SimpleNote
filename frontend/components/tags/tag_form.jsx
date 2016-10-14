@@ -9,7 +9,7 @@ export default class TagForm extends React.Component {
     this._save = this._save.bind(this);
   }
 
-  componentDidUpdate() {
+  componentWillMount() {
     this.tagNames = [];
     if (this.props.noteTags) {
       this.tagNames = this.props.noteTags.map( (tag) => {
@@ -31,7 +31,6 @@ export default class TagForm extends React.Component {
     } else {
       this.props.create({note});
     }
-
   }
 
   handleSubmit(e) {
@@ -45,6 +44,7 @@ export default class TagForm extends React.Component {
       this._save();
       tag.note_id = this.props.note.id;
       this.props.createTag({tag});
+      this.props.getNote(this.props.note.id);
       this.setState({name: ""});
     }
   }
